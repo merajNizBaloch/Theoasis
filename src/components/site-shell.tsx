@@ -53,12 +53,11 @@ export function SiteHeader() {
             className="oasis-navbar-logo"
             src="/oasis-logo-v2.webp"
             alt="The Oasis School Panjgur logo"
-            width="46"
-            height="52"
+            width="52"
+            height="58"
             loading="eager"
             decoding="async"
           />
-          <span className="oasis-navbar-name">The Oasis</span>
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
