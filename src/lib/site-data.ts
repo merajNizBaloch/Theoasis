@@ -5,6 +5,11 @@ export const school = {
   tagline: "The School That Sends You to the Highest Peak",
   phone: "(0855) 641382",
   hours: "Monday–Saturday · 7:30 AM–2:00 PM",
+  principal: {
+    name: "Nizar Baloch",
+    title: "Principal",
+    linkedin: "https://www.linkedin.com/in/nizar-baloch-82051154/",
+  },
 };
 
 export const nav = [
@@ -31,8 +36,8 @@ export const galleryImages = [
   },
   {
     src: "https://oasis3academy.wordpress.com/wp-content/uploads/2014/03/148110_443952852328963_2141890159_n-opt373x306o00s373x306.jpg",
-    alt: "Sir Nizam Kareem, principal of The Oasis Academy",
-    caption: "Sir Nizam Kareem",
+    alt: "Sir Nizam Kareem, a former principal of The Oasis Academy",
+    caption: "Sir Nizam Kareem · former principal",
   },
   {
     src: "https://oasis3academy.wordpress.com/wp-content/uploads/2014/03/581178_460478447359859_85365369_n.jpg",
