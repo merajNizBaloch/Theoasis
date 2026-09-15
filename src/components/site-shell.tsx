@@ -14,8 +14,8 @@ export function OasisMark({ compact = false }: { compact?: boolean }) {
         className="school-crest"
         src="/oasis-logo.svg"
         alt="The Oasis School Panjgur"
-        width={104}
-        height={114}
+        width={94}
+        height={106}
         priority
       />
     </span>
@@ -29,14 +29,7 @@ export function SiteHeader() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="site-header site-header--academic">
-      <div className="school-topline">
-        <div className="school-topline__inner">
-          <span>Knowledge · Character · Opportunity</span>
-          <span>Panjgur · Balochistan</span>
-        </div>
-      </div>
-
+    <header className="site-header site-header--refined">
       <div className="site-header__inner">
         <Link className="header-brand" href="/" aria-label="The Oasis School home">
           <OasisMark />
@@ -54,7 +47,7 @@ export function SiteHeader() {
         </nav>
 
         <Link className="header-cta" href="/admissions">
-          Admissions <ArrowUpRight size={16} />
+          Admissions <ArrowUpRight size={15} />
         </Link>
 
         <button
@@ -63,7 +56,7 @@ export function SiteHeader() {
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={23} /> : <Menu size={23} />}
         </button>
       </div>
 
@@ -79,7 +72,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link className="mobile-nav__cta" href="/admissions">
-            Admissions <ArrowUpRight size={16}/>
+            Admissions <ArrowUpRight size={15}/>
           </Link>
         </nav>
       )}
