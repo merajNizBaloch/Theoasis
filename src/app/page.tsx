@@ -19,7 +19,7 @@ const heroImage = galleryImages[0].src;
 
 export default function HomePage() {
   const academicCards = [
-    [Languages, "English & communication", "The foundation of the Oasis story — building the language confidence students need for further study and wider opportunity."],
+    [Languages, "English & communication", "The foundation of The Oasis story — building the language confidence students need for further study and wider opportunity."],
     [BookOpen, "English-medium schooling", "A broad school environment built around disciplined learning, communication and strong academic foundations."],
     [Microscope, "Science & arts", "Balanced learning that supports analytical thinking, creativity and preparation for higher education."],
     [MonitorUp, "Computer learning", "Practical exposure to technology became an important part of the school's growth."],
@@ -39,7 +39,7 @@ export default function HomePage() {
                 The Oasis School grew from a small English language centre into a school community that helped widen educational opportunity in Panjgur.
               </p>
               <div className="hero__actions">
-                <Link className="button button--light" href="/about">Discover Oasis <ArrowRight size={16} /></Link>
+                <Link className="button button--light" href="/about">Discover The Oasis <ArrowRight size={16} /></Link>
                 <Link className="button button--ghost" href="/admissions">Admissions</Link>
               </div>
             </HeroMotion>
@@ -57,12 +57,12 @@ export default function HomePage() {
       <section className="welcome-strip">
         <div className="welcome-strip__inner">
           <Reveal>
-            <p className="section-kicker">Welcome to Oasis</p>
+            <p className="section-kicker">Welcome to The Oasis</p>
             <h2 className="welcome-strip__title">A school with deep roots in Panjgur.</h2>
           </Reveal>
           <Reveal delay={0.08}>
             <p className="welcome-strip__copy">
-              Oasis began with a practical challenge: capable students needed stronger English to compete in higher education. From that starting point came a wider academic institution, an English-medium school, computer learning, a library and a growing culture of educational ambition.
+              The Oasis began with a practical challenge: capable students needed stronger English to compete in higher education. From that starting point came a wider academic institution, an English-medium school, computer learning, a library and a growing culture of educational ambition.
             </p>
           </Reveal>
         </div>
@@ -74,7 +74,7 @@ export default function HomePage() {
             <Image src={galleryImages[1].src} alt={galleryImages[1].alt} fill sizes="(max-width: 760px) 100vw, 50vw" unoptimized />
             <div className="story-image__badge">
               <strong>Sir Zahir Hussain</strong>
-              <span>Founder and educator at the heart of the Oasis story.</span>
+              <span>Founder and educator at the heart of The Oasis story.</span>
             </div>
           </Reveal>
 
@@ -88,7 +88,7 @@ export default function HomePage() {
               Strong student results brought growing trust from families. The language centre became The Oasis Academy, and the institution expanded into a broader school environment serving boys and girls from Panjgur and the wider Makran region.
             </p>
             <p className="story-copy__quote">
-              Oasis became part of a larger change in how families in Panjgur imagined education, especially for girls.
+              The Oasis became part of a larger change in how families in Panjgur imagined education, especially for girls.
             </p>
             <Link className="button button--outline" href="/history">Explore the full history <ArrowRight size={15}/></Link>
           </Reveal>
@@ -194,7 +194,7 @@ export default function HomePage() {
           <p className="section-kicker">School life</p>
           <h2 className="section-title">A school is made of moments as much as lessons.</h2>
           <p className="section-intro">
-            Teachers, students, farewell gatherings and everyday school memories are part of the Oasis story. Explore photographs preserved from the school community.
+            Teachers, students, farewell gatherings and everyday school memories are part of The Oasis story. Explore photographs preserved from the school community.
           </p>
         </Reveal>
 
@@ -215,7 +215,7 @@ export default function HomePage() {
       <section className="values-section">
         <div className="section">
           <Reveal>
-            <p className="section-kicker">What Oasis stands for</p>
+            <p className="section-kicker">What The Oasis stands for</p>
             <h2 className="section-title">Knowledge, confidence, respect and opportunity.</h2>
           </Reveal>
           <div className="values-grid">
@@ -243,7 +243,7 @@ export default function HomePage() {
           <Image className="cta-band__logo" src="/oasis-logo.svg" alt="The Oasis School logo" width={145} height={165} />
           <p className="eyebrow" style={{justifyContent:"center"}}>The Oasis School · Panjgur</p>
           <h2>Your next chapter can begin here.</h2>
-          <p>Visit the school to learn about available classes, admission requirements and the learning environment at Oasis.</p>
+          <p>Visit the school to learn about available classes, admission requirements and the learning environment at The Oasis.</p>
           <div className="hero__actions" style={{justifyContent:"center"}}>
             <Link className="button button--light" href="/admissions">Admissions information <ArrowRight size={16}/></Link>
             <Link className="button button--ghost" href="/contact">Contact & location</Link>
