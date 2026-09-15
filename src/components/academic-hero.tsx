@@ -1,5 +1,4 @@
 import {
-  BookOpen,
   GraduationCap,
   Image as ImageIcon,
   Languages,
@@ -28,8 +27,15 @@ function HomeVisual() {
       <div className="home-core-ring home-core-ring--one" />
       <div className="home-core-ring home-core-ring--two" />
       <div className="home-core-ring home-core-ring--three" />
-      <div className="home-core">
-        <BookOpen size={54} strokeWidth={1.35} />
+      <div className="home-core home-core--crest">
+        <img
+          src="/oasis-logo.webp"
+          alt=""
+          width="150"
+          height="150"
+          loading="eager"
+          decoding="async"
+        />
       </div>
       <span className="home-topic home-topic--one">EN</span>
       <span className="home-topic home-topic--two">SCI</span>
