@@ -31,7 +31,7 @@ const seoMap: Record<Slug, {
   },
   academics: {
     title: "Academics & Learning",
-    description: "Explore academics at The Oasis School Panjur, including English-medium learning, science, arts, computer education, communication and library-based study.",
+    description: "Explore academics at The Oasis School Panjgur, including English-medium learning, science, arts, computer education, communication and library-based study.",
     keywords: ["The Oasis academics", "computer education Panjgur", "English medium school Panjgur", "school library Panjgur"],
     image: "/gallery/1000065059.webp",
   },
