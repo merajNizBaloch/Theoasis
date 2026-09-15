@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
+import { AcademicHero } from "@/components/academic-hero";
 import { galleryImages, historyTimeline, pageContent, school } from "@/lib/site-data";
 
 const validSlugs = ["about", "history", "academics", "student-life", "admissions", "gallery", "contact"] as const;
@@ -17,16 +18,6 @@ const titleMap: Record<Slug, string> = {
   admissions: "Admissions",
   gallery: "Gallery",
   contact: "Contact",
-};
-
-const heroImages: Record<Slug, number> = {
-  about: 0,
-  history: 1,
-  academics: 6,
-  "student-life": 7,
-  admissions: 2,
-  gallery: 3,
-  contact: 0,
 };
 
 export function generateStaticParams() {
@@ -50,28 +41,17 @@ function PageHero({
   eyebrow,
   title,
   intro,
-  imageIndex,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
-  imageIndex: number;
 }) {
-  const image = galleryImages[imageIndex];
   return (
-    <section className="page-hero">
-      <div className="page-hero__inner page-hero__grid">
-        <Reveal className="page-hero__copy">
-          <p className="eyebrow">{eyebrow}</p>
-          <h1>{title}</h1>
-          <p>{intro}</p>
-        </Reveal>
-        <Reveal className="page-hero__media" delay={0.08}>
-          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 38vw" unoptimized />
-          <span>{image.caption}</span>
-        </Reveal>
-      </div>
-    </section>
+    <AcademicHero
+      eyebrow={eyebrow}
+      title={title}
+      description={intro}
+    />
   );
 }
 
@@ -81,7 +61,7 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
 
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} imageIndex={heroImages[slug as Slug]} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
 
       <section className="section">
         <div className="content-grid">
@@ -160,7 +140,6 @@ function HistoryPage() {
         eyebrow="Our History"
         title="From a small language centre to a Panjgur institution."
         intro="The Oasis story began with English-language teaching and grew into a wider school community that helped shape educational ambition in Panjgur."
-        imageIndex={1}
       />
 
       <section className="section">
@@ -263,7 +242,6 @@ function GalleryPage() {
         eyebrow="Gallery"
         title="The Oasis story in photographs."
         intro="Teachers, students, school gatherings and memories from The Oasis School community in Panjgur."
-        imageIndex={6}
       />
 
       <section className="section">
