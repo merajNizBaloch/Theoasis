@@ -82,10 +82,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/oasis-logo.webp", type: "image/webp" },
+      { url: "/oasis-logo-v2.webp", type: "image/webp" },
     ],
-    apple: "/oasis-logo.webp",
-    shortcut: "/oasis-logo.webp",
+    apple: "/oasis-logo-v2.webp",
+    shortcut: "/oasis-logo-v2.webp",
   },
   manifest: "/manifest.webmanifest",
 };
@@ -110,7 +110,7 @@ const structuredData = {
       name: school.name,
       alternateName: school.shortName,
       url: siteUrl,
-      logo: `${siteUrl}/oasis-logo.webp`,
+      logo: `${siteUrl}/oasis-logo-v2.webp`,
       image: `${siteUrl}${socialImage}`,
       description:
         "The Oasis School is an educational institution in Panjgur, Balochistan, with roots in English-language learning and a wider tradition of school education, computing, reading and student development.",
