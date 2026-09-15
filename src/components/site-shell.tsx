@@ -12,7 +12,7 @@ export function OasisMark({ compact = false }: { compact?: boolean }) {
     <span className={compact ? "brand brand--compact" : "brand"}>
       <Image
         className="school-crest"
-        src="/oasis-logo.svg"
+        src="/oasis-logo.webp"
         alt="The Oasis School Panjgur"
         width={94}
         height={106}
