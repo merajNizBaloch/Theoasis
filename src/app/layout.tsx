@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | The Oasis School",
   },
   description: "The Oasis School Panjgur — a school with deep roots in English education, academic opportunity and learning in Balochistan.",
-  keywords: ["The Oasis School", "Oasis School Panjgur", "Oasis Academy Panjgur", "Panjgur school", "Balochistan education", "Sir Zahir Hussain"],
+  keywords: ["The Oasis School", "The Oasis School Panjgur", "The Oasis Academy Panjgur", "Panjgur school", "Balochistan education", "Sir Zahir Hussain"],
   openGraph: {
     title: "The Oasis School — Panjgur",
     description: "A legacy of learning, confidence and opportunity in Panjgur, Balochistan.",
