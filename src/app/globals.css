@@ -4597,3 +4597,41 @@ a {
     margin-left: auto !important;
   }
 }
+
+
+/* Navbar crest only */
+.oasis-navbar-brand {
+  width: 58px !important;
+  min-width: 58px !important;
+  height: 58px !important;
+  gap: 0 !important;
+  justify-content: center !important;
+}
+
+.oasis-navbar-logo {
+  width: 52px !important;
+  height: 58px !important;
+  min-width: 52px !important;
+  max-width: 52px !important;
+  flex: 0 0 52px !important;
+}
+
+.oasis-navbar-name {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .oasis-navbar-brand {
+    width: 48px !important;
+    min-width: 48px !important;
+    height: 50px !important;
+  }
+
+  .oasis-navbar-logo {
+    width: 44px !important;
+    height: 50px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    flex-basis: 44px !important;
+  }
+}
