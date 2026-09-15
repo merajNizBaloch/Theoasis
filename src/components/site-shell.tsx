@@ -110,7 +110,7 @@ export function SiteFooter() {
       </div>
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} {school.name}</span>
-        <span>{school.tagline}</span>
+        <span>Developed by <a href="https://techcraftsolution.com" target="_blank" rel="noreferrer">TechCraft</a></span>
       </div>
     </footer>
   );
