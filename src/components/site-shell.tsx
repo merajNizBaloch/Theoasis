@@ -11,7 +11,7 @@ export function OasisMark({ compact = false }: { compact?: boolean }) {
     <span className={compact ? "brand brand--compact" : "brand"}>
       <img
         className="school-crest"
-        src="/oasis-logo.webp"
+        src="/oasis-logo-v2.webp"
         alt="The Oasis School Panjgur"
         width="94"
         height="106"
@@ -51,7 +51,7 @@ export function SiteHeader() {
         <Link className="header-brand" href="/" aria-label="The Oasis School home">
           <img
             className="header-logo"
-            src="/oasis-logo.webp"
+            src="/oasis-logo-v2.webp"
             alt="The Oasis School Panjgur logo"
             width="54"
             height="54"
