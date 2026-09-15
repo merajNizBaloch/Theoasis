@@ -99,7 +99,7 @@ export default function HomePage() {
         <div className="stat-strip__inner">
           <Reveal className="stat">
             <strong>20,000+</strong>
-            <span>Students reported to have benefited from Oasis during its early decades of growth.</span>
+            <span>Students reported to have benefited from The Oasis during its early decades of growth.</span>
           </Reveal>
           <Reveal className="stat" delay={0.05}>
             <strong>2 rooms</strong>
@@ -118,10 +118,10 @@ export default function HomePage() {
 
       <section className="section">
         <Reveal>
-          <p className="section-kicker">Learning at Oasis</p>
+          <p className="section-kicker">Learning at The Oasis</p>
           <h2 className="section-title">More than one subject. More than one kind of growth.</h2>
           <p className="section-intro">
-            Oasis developed around the idea that students need strong academics, communication skills, access to technology and the confidence to keep learning beyond school.
+            The Oasis developed around the idea that students need strong academics, communication skills, access to technology and the confidence to keep learning beyond school.
           </p>
         </Reveal>
 
@@ -149,12 +149,12 @@ export default function HomePage() {
             <p className="section-kicker">Education for girls</p>
             <h2 className="section-title">Opening doors that had once been difficult to open.</h2>
             <p>
-              The first female class at the original language centre was small. Over time, participation grew and girls became a major part of the Oasis learning community. That shift became one of the school's most important contributions to Panjgur's educational culture.
+              The first female class at the original language centre was small. Over time, participation grew and girls became a major part of The Oasis learning community. That shift became one of the school's most important contributions to Panjgur's educational culture.
             </p>
             <p>
-              Former students have remembered Oasis as a place of teachers, friendships, confidence, respect and opportunity — a school experience that stayed with them long after Class 10.
+              Former students have remembered The Oasis as a place of teachers, friendships, confidence, respect and opportunity — a school experience that stayed with them long after Class 10.
             </p>
-            <Link className="button button--outline" href="/student-life">Student life at Oasis <ArrowRight size={15}/></Link>
+            <Link className="button button--outline" href="/student-life">Student life at The Oasis <ArrowRight size={15}/></Link>
           </Reveal>
 
           <Reveal className="photo-story__visual" delay={0.08}>
