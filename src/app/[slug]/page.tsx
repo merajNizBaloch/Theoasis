@@ -92,7 +92,7 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
                 {slug === "about" && "Education with roots, purpose and community."}
                 {slug === "academics" && "Learning that builds skill, confidence and curiosity."}
                 {slug === "student-life" && "A place to learn, belong and grow."}
-                {slug === "admissions" && "A simple path to joining the Oasis community."}
+                {slug === "admissions" && "A simple path to joining The Oasis community."}
                 {slug === "contact" && "We look forward to welcoming you."}
               </h2>
             </Reveal>
@@ -215,7 +215,7 @@ function HistoryPage() {
         <div className="section">
           <Reveal>
             <p className="section-kicker">A lasting contribution</p>
-            <h2 className="section-title">Oasis helped make education part of a bigger conversation.</h2>
+            <h2 className="section-title">The Oasis helped make education part of a bigger conversation.</h2>
             <p className="section-intro">
               The school's growth coincided with a wider rise of private education and English-language learning across Makran. Its support for girls' education and its focus on language, computing and reading became central parts of that legacy.
             </p>
@@ -223,7 +223,7 @@ function HistoryPage() {
 
           <div className="legacy-grid">
             {[
-              ["English first", "Oasis began by addressing the language barrier that held many strong students back."],
+              ["English first", "The Oasis began by addressing the language barrier that held many strong students back."],
               ["Girls in the classroom", "Female participation grew from a small first group into a major part of the school community."],
               ["Technology & books", "Computer learning and a library widened what students could explore beyond regular lessons."],
               ["Learning for more families", "The school's history includes efforts to support students who could not easily afford private education."],
@@ -241,7 +241,7 @@ function HistoryPage() {
       <section className="section">
         <Reveal>
           <p className="section-kicker">Through the years</p>
-          <h2 className="section-title">People and moments from the Oasis community.</h2>
+          <h2 className="section-title">People and moments from The Oasis community.</h2>
         </Reveal>
         <div className="gallery-preview gallery-preview--expanded">
           {galleryImages.slice(1,9).map((image, index) => (
@@ -293,7 +293,7 @@ function ContactDetails() {
         <div className="contact-cards">
           <Reveal className="contact-card">
             <MapPin size={24}/>
-            <h3>Visit Oasis</h3>
+            <h3>Visit The Oasis</h3>
             <p>{school.location}</p>
           </Reveal>
           <Reveal className="contact-card" delay={.04}>
