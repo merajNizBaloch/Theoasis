@@ -1,13 +1,33 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
-import { galleryImages, historyTimeline, pageContent, sources } from "@/lib/site-data";
+import { galleryImages, historyTimeline, pageContent, school } from "@/lib/site-data";
 
-const validSlugs = ["about", "history", "academics", "admissions", "gallery", "contact"] as const;
+const validSlugs = ["about", "history", "academics", "student-life", "admissions", "gallery", "contact"] as const;
 type Slug = (typeof validSlugs)[number];
+
+const titleMap: Record<Slug, string> = {
+  about: "About",
+  history: "History",
+  academics: "Academics",
+  "student-life": "Student Life",
+  admissions: "Admissions",
+  gallery: "Gallery",
+  contact: "Contact",
+};
+
+const heroImages: Record<Slug, number> = {
+  about: 0,
+  history: 1,
+  academics: 6,
+  "student-life": 7,
+  admissions: 2,
+  gallery: 3,
+  contact: 0,
+};
 
 export function generateStaticParams() {
   return validSlugs.map((slug) => ({ slug }));
@@ -20,28 +40,35 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   if (!validSlugs.includes(slug as Slug)) return {};
-  const titleMap: Record<Slug, string> = {
-    about: "About",
-    history: "History",
-    academics: "Academics",
-    admissions: "Admissions",
-    gallery: "Gallery",
-    contact: "Contact",
-  };
   return {
     title: titleMap[slug as Slug],
-    description: `${titleMap[slug as Slug]} — The Oasis Academy, Panjgur, Balochistan.`,
+    description: `${titleMap[slug as Slug]} — The Oasis School, Panjgur, Balochistan.`,
   };
 }
 
-function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
+function PageHero({
+  eyebrow,
+  title,
+  intro,
+  imageIndex,
+}: {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  imageIndex: number;
+}) {
+  const image = galleryImages[imageIndex];
   return (
     <section className="page-hero">
-      <div className="page-hero__inner">
-        <Reveal>
+      <div className="page-hero__inner page-hero__grid">
+        <Reveal className="page-hero__copy">
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p>{intro}</p>
+        </Reveal>
+        <Reveal className="page-hero__media" delay={0.08}>
+          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 38vw" unoptimized />
+          <span>{image.caption}</span>
         </Reveal>
       </div>
     </section>
@@ -50,40 +77,78 @@ function PageHero({ eyebrow, title, intro }: { eyebrow: string; title: string; i
 
 function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
   const content = pageContent[slug];
+  const visualIndex = slug === "about" ? 15 : slug === "academics" ? 4 : slug === "student-life" ? 9 : slug === "admissions" ? 12 : 0;
+
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} imageIndex={heroImages[slug as Slug]} />
+
       <section className="section">
         <div className="content-grid">
           <aside className="content-aside">
             <Reveal>
-              <p>The Oasis Academy</p>
-              <h2>{slug === "contact" ? "Publicly documented details." : "Education grounded in place and purpose."}</h2>
+              <p>The Oasis School</p>
+              <h2>
+                {slug === "about" && "Education with roots, purpose and community."}
+                {slug === "academics" && "Learning that builds skill, confidence and curiosity."}
+                {slug === "student-life" && "A place to learn, belong and grow."}
+                {slug === "admissions" && "A simple path to joining the Oasis community."}
+                {slug === "contact" && "We look forward to welcoming you."}
+              </h2>
             </Reveal>
           </aside>
+
           <div>
             {content.blocks.map(([title, text], index) => (
-              <Reveal className="info-block" delay={index * 0.05} key={title}>
+              <Reveal className="info-block" delay={index * 0.04} key={title}>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </Reveal>
             ))}
-            {slug === "contact" && (
-              <Reveal className="info-block">
-                <h3>Historical sources</h3>
-                <p>For transparency, this site keeps its research trail visible. Older phone and hours information is labelled archival rather than presented as verified current operating information.</p>
-                <div className="source-list">
-                  {sources.slice(0,2).map((source) => (
-                    <a className="source-link" href={source.href} target="_blank" rel="noreferrer" key={source.href}>
-                      <span>{source.label}</span><ExternalLink size={15}/>
-                    </a>
-                  ))}
-                </div>
-              </Reveal>
-            )}
           </div>
         </div>
       </section>
+
+      {slug !== "contact" && (
+        <section className="page-photo-band">
+          <div className="section page-photo-band__grid">
+            {[visualIndex, visualIndex + 1, visualIndex + 2].map((index, i) => {
+              const image = galleryImages[index % galleryImages.length];
+              return (
+                <Reveal className="page-photo-band__item" delay={i * .05} key={image.src}>
+                  <Image src={image.src} alt={image.alt} fill sizes="(max-width:760px) 100vw, 33vw" unoptimized />
+                  <span>{image.caption}</span>
+                </Reveal>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {slug === "admissions" && (
+        <section className="section section--tight">
+          <Reveal>
+            <p className="section-kicker">How to get started</p>
+            <h2 className="section-title">Four simple steps for families.</h2>
+          </Reveal>
+          <div className="admission-steps">
+            {[
+              ["01", "Visit the school", "Come to the campus during school hours and meet the school team."],
+              ["02", "Ask about placement", "Discuss the appropriate class, current intake and learning expectations."],
+              ["03", "Prepare documents", "Bring the required student and parent or guardian documents."],
+              ["04", "Complete enrollment", "Finish the school admission process and receive the next instructions."],
+            ].map(([number, title, text], index) => (
+              <Reveal className="admission-step" delay={index * .05} key={number}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {slug === "contact" && <ContactDetails />}
     </>
   );
 }
@@ -92,22 +157,24 @@ function HistoryPage() {
   return (
     <>
       <PageHero
-        eyebrow="History"
-        title="From two rooms to an educational legacy."
-        intro="The documented history of Oasis is closely tied to Panjgur's modern private-education movement, the spread of English-language learning, and the expansion of educational opportunity for girls."
+        eyebrow="Our History"
+        title="From a small language centre to a Panjgur institution."
+        intro="The Oasis story began with English-language teaching and grew into a wider school community that helped shape educational ambition in Panjgur."
+        imageIndex={1}
       />
 
       <section className="section">
         <div className="content-grid">
           <aside className="content-aside">
             <Reveal>
-              <p>A documented timeline</p>
-              <h2>The story behind the name Oasis.</h2>
+              <p>The Oasis journey</p>
+              <h2>Years of teaching, growth and determination.</h2>
             </Reveal>
           </aside>
+
           <div className="timeline">
             {historyTimeline.map((item, index) => (
-              <Reveal className="timeline__row" delay={index * .035} key={item.title}>
+              <Reveal className="timeline__row" delay={index * .03} key={item.title}>
                 <div className="timeline__era">{item.era}</div>
                 <div>
                   <h3>{item.title}</h3>
@@ -132,34 +199,57 @@ function HistoryPage() {
             <p className="section-kicker" style={{color:"#e3c77e"}}>Founder</p>
             <h3>Sir Zahir Hussain</h3>
             <p>
-              Archived Oasis material says Hussain returned after studying in the United States and focused first on English because it was a major barrier for students aiming at civil service, medical and engineering pathways.
+              After studying in the United States in the early 1990s, Sir Zahir Hussain returned to Panjgur with a determination to improve educational opportunity in his community.
             </p>
             <p>
-              Other reporting on Panjgur&apos;s education history identifies the earlier American English Language Center as a project associated with Sir Zahir Hussain and Sir Saleh, after which Hussain continued the work and the institution developed into The Oasis Academy.
+              He identified English as a major obstacle for talented students seeking admission to competitive professional and higher-education pathways. The answer was to begin with language teaching and build from there.
             </p>
             <p>
-              Historical coverage also emphasizes his role in widening girls&apos; participation in education — a change that became influential well beyond one classroom.
+              What started in two rented rooms developed into a much wider institution offering school education, English-language learning, computer training, a library and science and arts subjects.
             </p>
           </div>
         </Reveal>
       </section>
 
       <section className="history-band">
-        <div className="section section--tight">
+        <div className="section">
           <Reveal>
-            <p className="section-kicker">Research trail</p>
-            <h2 className="section-title">Sources behind this history.</h2>
-            <p className="section-intro">Where public sources disagree or are old, the website avoids turning them into unsupported present-day claims.</p>
+            <p className="section-kicker">A lasting contribution</p>
+            <h2 className="section-title">Oasis helped make education part of a bigger conversation.</h2>
+            <p className="section-intro">
+              The school's growth coincided with a wider rise of private education and English-language learning across Makran. Its support for girls' education and its focus on language, computing and reading became central parts of that legacy.
+            </p>
           </Reveal>
-          <div className="source-list">
-            {sources.map((source) => (
-              <Reveal key={source.href}>
-                <a className="source-link" href={source.href} target="_blank" rel="noreferrer">
-                  <span>{source.label}</span><ExternalLink size={15}/>
-                </a>
+
+          <div className="legacy-grid">
+            {[
+              ["English first", "Oasis began by addressing the language barrier that held many strong students back."],
+              ["Girls in the classroom", "Female participation grew from a small first group into a major part of the school community."],
+              ["Technology & books", "Computer learning and a library widened what students could explore beyond regular lessons."],
+              ["Learning for more families", "The school's history includes efforts to support students who could not easily afford private education."],
+            ].map(([title, text], index) => (
+              <Reveal className="legacy-card" delay={index * .05} key={title}>
+                <CheckCircle2 size={20}/>
+                <h3>{title}</h3>
+                <p>{text}</p>
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <p className="section-kicker">Through the years</p>
+          <h2 className="section-title">People and moments from the Oasis community.</h2>
+        </Reveal>
+        <div className="gallery-preview gallery-preview--expanded">
+          {galleryImages.slice(1,9).map((image, index) => (
+            <Reveal className="gallery-tile" delay={index * .03} key={image.src}>
+              <Image src={image.src} alt={image.alt} fill sizes="(max-width:760px) 50vw, 23vw" unoptimized />
+              <span>{image.caption}</span>
+            </Reveal>
+          ))}
         </div>
       </section>
     </>
@@ -171,16 +261,15 @@ function GalleryPage() {
     <>
       <PageHero
         eyebrow="Gallery"
-        title="The Oasis archive."
-        intro="A selection of public photographs preserved on the academy's older web gallery, showing the school, founder, staff and school-life moments from around 2013–2014."
+        title="The Oasis story in photographs."
+        intro="Teachers, students, school gatherings and memories from The Oasis School community in Panjgur."
+        imageIndex={6}
       />
+
       <section className="section">
-        <p className="notice">
-          These images are historical and sourced from the public Oasis Academy Panjgur WordPress archive. Captions identify what the archive itself labels or what can be safely described from the image context; they are not presented as current campus photography.
-        </p>
         <div className="gallery-grid">
           {galleryImages.map((image, index) => (
-            <Reveal className="gallery-card" delay={(index % 3) * .03} key={image.src}>
+            <Reveal className="gallery-card" delay={(index % 3) * .025} key={image.src}>
               <div className="gallery-card__image">
                 <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" unoptimized />
               </div>
@@ -188,13 +277,38 @@ function GalleryPage() {
             </Reveal>
           ))}
         </div>
-        <div style={{marginTop:36}}>
-          <a className="button button--outline" href="https://oasis3academy.wordpress.com/pictures/" target="_blank" rel="noreferrer">
-            Open original archive <ArrowUpRight size={16}/>
-          </a>
-        </div>
       </section>
     </>
+  );
+}
+
+function ContactDetails() {
+  return (
+    <section className="contact-panel">
+      <div className="section contact-panel__grid">
+        <Reveal className="contact-panel__logo">
+          <Image src="/oasis-logo.svg" alt="The Oasis School Panjgur logo" width={250} height={282} />
+        </Reveal>
+
+        <div className="contact-cards">
+          <Reveal className="contact-card">
+            <MapPin size={24}/>
+            <h3>Visit Oasis</h3>
+            <p>{school.location}</p>
+          </Reveal>
+          <Reveal className="contact-card" delay={.04}>
+            <Phone size={24}/>
+            <h3>Telephone</h3>
+            <p>{school.phone}</p>
+          </Reveal>
+          <Reveal className="contact-card" delay={.08}>
+            <Clock3 size={24}/>
+            <h3>School hours</h3>
+            <p>{school.hours}<br/>Sunday · Closed</p>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   );
 }
 
