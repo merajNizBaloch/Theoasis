@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2, ExternalLink } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { AcademicHero, type HeroVariant } from "@/components/academic-hero";
@@ -100,35 +100,6 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
         </div>
       </section>
 
-      {slug === "about" && (
-        <section className="principal-section">
-          <div className="section principal-section__inner">
-            <Reveal className="principal-section__intro">
-              <p className="section-kicker">Leadership today</p>
-              <h2 className="section-title">Meet the Principal.</h2>
-              <p className="section-intro">
-                The Oasis continues its educational journey under current Principal {school.principal.name}.
-              </p>
-            </Reveal>
-
-            <Reveal className="principal-profile" delay={0.07}>
-              <span className="principal-profile__monogram">NB</span>
-              <div className="principal-profile__content">
-                <small>{school.principal.title} · The Oasis School</small>
-                <h3>{school.principal.name}</h3>
-                <p>
-                  Leading the school community in Panjgur while building on The Oasis tradition of academic
-                  opportunity, communication, student confidence and educational access.
-                </p>
-                <a href={school.principal.linkedin} target="_blank" rel="noreferrer">
-                  View professional profile <ExternalLink size={15}/>
-                </a>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-      )}
-
       {slug !== "contact" && photoSet.length > 0 && (
         <section className="page-photo-band">
           <div className="section page-photo-band__grid">
@@ -161,6 +132,29 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
                 <p>{text}</p>
               </Reveal>
             ))}
+          </div>
+        </section>
+      )}
+
+      {slug === "admissions" && (
+        <section className="admissions-action-band">
+          <div className="section admissions-action-band__inner">
+            <Reveal>
+              <p className="section-kicker">Ready to ask about admission?</p>
+              <h2 className="section-title">Speak with the school or plan a visit.</h2>
+              <p className="section-intro">{school.contactNote}</p>
+            </Reveal>
+            <Reveal className="admissions-action-band__buttons" delay={0.06}>
+              <a className="button button--primary" href={school.phoneHref}>
+                <Phone size={16}/> Call the school
+              </a>
+              <a className="button button--outline" href={school.mapsUrl} target="_blank" rel="noreferrer">
+                <MapPin size={16}/> Get directions
+              </a>
+              <Link className="button button--outline" href="/contact">
+                Contact information <ArrowRight size={15}/>
+              </Link>
+            </Reveal>
           </div>
         </section>
       )}
@@ -274,34 +268,57 @@ function HistoryPage() {
 }
 
 function GalleryPage() {
+  const currentGroups = [
+    {
+      kicker: "Academics & facilities",
+      title: "Learning spaces in use.",
+      intro: "The computer lab and library show practical digital learning, reading and independent study in the current school environment.",
+      images: currentGalleryImages.filter((image) => image.context === "Academics"),
+    },
+    {
+      kicker: "Student activities",
+      title: "Participation, confidence and school life.",
+      intro: "Public speaking, school programmes and student gatherings reflect the social and expressive side of learning at The Oasis.",
+      images: currentGalleryImages.filter((image) => image.context === "Student life" || image.context === "School life"),
+    },
+    {
+      kicker: "Educational visits",
+      title: "Learning beyond the campus.",
+      intro: "These photographs show The Oasis students during an educational visit to the University of Makran, Panjgur.",
+      images: currentGalleryImages.filter((image) => image.context === "Educational visit"),
+    },
+  ] as const;
+
   return (
     <>
       <PageHero
         eyebrow="Gallery"
         title="The Oasis story in photographs."
-        intro="Teachers, students, school gatherings and memories from The Oasis School community in Panjgur."
+        intro="Teachers, students, school gatherings, learning spaces and memories from The Oasis community in Panjgur."
         variant="gallery"
       />
 
-      <section className="section">
-        <Reveal>
-          <p className="section-kicker">The Oasis today</p>
-          <h2 className="section-title">Learning, participation and school life.</h2>
-          <p className="section-intro">
-            Recent photographs from classrooms, academic programmes, the computer lab, library and educational visits.
-          </p>
-        </Reveal>
-        <div className="gallery-grid" style={{marginTop: 42}}>
-          {currentGalleryImages.map((image, index) => (
-            <Reveal className="gallery-card" delay={(index % 3) * .025} key={image.src}>
-              <div className="gallery-card__image">
-                <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
-              </div>
-              <p>{image.caption}</p>
+      {currentGroups.map((group, groupIndex) => (
+        <section className={groupIndex % 2 === 1 ? "history-band" : ""} key={group.kicker}>
+          <div className="section">
+            <Reveal>
+              <p className="section-kicker">{group.kicker}</p>
+              <h2 className="section-title">{group.title}</h2>
+              <p className="section-intro">{group.intro}</p>
             </Reveal>
-          ))}
-        </div>
-      </section>
+            <div className="gallery-grid gallery-grid--current" style={{marginTop: 42}}>
+              {group.images.map((image, index) => (
+                <Reveal className="gallery-card" delay={(index % 3) * .025} key={image.src}>
+                  <div className="gallery-card__image">
+                    <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                  </div>
+                  <p>{image.caption}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
 
       <section className="history-band">
         <div className="section">
@@ -309,14 +326,21 @@ function GalleryPage() {
             <p className="section-kicker">From the archives</p>
             <h2 className="section-title">Earlier chapters of The Oasis story.</h2>
             <p className="section-intro">
-              Older photographs preserved from The Oasis community, including school events, teachers and memories from earlier years.
+              Older photographs preserved from The Oasis community, including the school campus,
+              teachers, farewell events and school life from earlier years.
             </p>
           </Reveal>
           <div className="gallery-grid" style={{marginTop: 42}}>
-            {galleryImages.map((image, index) => (
+            {[currentGalleryImages[9], ...galleryImages].map((image, index) => (
               <Reveal className="gallery-card" delay={(index % 3) * .025} key={image.src}>
                 <div className="gallery-card__image">
-                  <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" unoptimized />
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 760px) 100vw, 33vw"
+                    unoptimized={image.src.startsWith("http")}
+                  />
                 </div>
                 <p>{image.caption}</p>
               </Reveal>
@@ -333,7 +357,15 @@ function ContactDetails() {
     <section className="contact-panel">
       <div className="section contact-panel__grid">
         <Reveal className="contact-panel__logo">
-          <Image src="/oasis-logo.webp" alt="The Oasis School Panjgur logo" width={250} height={282} />
+          <img
+            src="/oasis-logo.webp"
+            alt="The Oasis School Panjgur logo"
+            width="250"
+            height="282"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>{school.contactNote}</p>
         </Reveal>
 
         <div className="contact-cards">
@@ -341,16 +373,19 @@ function ContactDetails() {
             <MapPin size={24}/>
             <h3>Visit The Oasis</h3>
             <p>{school.location}</p>
+            <a href={school.mapsUrl} target="_blank" rel="noreferrer">Open in Maps <ArrowRight size={14}/></a>
           </Reveal>
           <Reveal className="contact-card" delay={.04}>
             <Phone size={24}/>
             <h3>Telephone</h3>
             <p>{school.phone}</p>
+            <a href={school.phoneHref}>Call the school <ArrowRight size={14}/></a>
           </Reveal>
           <Reveal className="contact-card" delay={.08}>
             <Clock3 size={24}/>
             <h3>School hours</h3>
             <p>{school.hours}<br/>Sunday · Closed</p>
+            <small>Please confirm current timings before visiting.</small>
           </Reveal>
         </div>
       </div>
