@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -14,8 +15,12 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { AcademicHero } from "@/components/academic-hero";
-import { galleryImages, historyTimeline, school } from "@/lib/site-data";
+import { galleryImages, historyTimeline } from "@/lib/site-data";
 import { currentGalleryImages } from "@/lib/current-gallery";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 
 export default function HomePage() {
