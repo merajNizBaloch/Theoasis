@@ -4250,3 +4250,72 @@ a {
     height: 116px;
   }
 }
+
+
+/* Navbar crest */
+.site-header--refined .site-header__inner {
+  padding-left: 24px;
+}
+
+.header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  color: var(--green-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.header-brand:hover {
+  color: var(--green);
+}
+
+.header-logo {
+  display: block;
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 4px 8px rgba(7, 59, 45, .14));
+}
+
+.site-header--refined .desktop-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1180px) {
+  .site-header--refined .site-header__inner {
+    padding-left: 20px;
+  }
+
+  .header-brand {
+    font-size: 20px;
+  }
+
+  .header-logo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header--refined .site-header__inner {
+    height: 68px;
+    padding: 0 14px;
+  }
+
+  .header-brand {
+    gap: 8px;
+    font-size: 18px;
+  }
+
+  .header-logo {
+    width: 46px;
+    height: 46px;
+  }
+}
