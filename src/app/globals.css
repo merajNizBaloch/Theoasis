@@ -3458,3 +3458,261 @@ main {
     font-size: 18px;
   }
 }
+
+
+/* Final content, contact and logo polish */
+.site-header--refined .school-crest,
+.site-footer .school-crest {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  object-fit: contain;
+  object-position: center;
+}
+
+.site-header--refined .header-brand {
+  overflow: visible;
+}
+
+.site-footer .brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.school-today-points {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.school-today-points span {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.school-today-points strong {
+  color: var(--green-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.facilities-section {
+  background: #edf2ed;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.facility-card {
+  overflow: hidden;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(18,49,40,.06);
+}
+
+.facility-card__image {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background: var(--green-soft);
+}
+
+.facility-card__image img {
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.facility-card:hover .facility-card__image img {
+  transform: scale(1.025);
+}
+
+.facility-card__copy {
+  padding: 24px;
+}
+
+.facility-card__copy svg {
+  color: var(--green);
+}
+
+.facility-card__copy h3 {
+  margin: 14px 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.facility-card__copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.student-highlight {
+  background: #0a4033;
+  color: white;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.student-highlight .section-kicker {
+  color: #e4c67f;
+}
+
+.student-highlight .section-title {
+  color: white;
+}
+
+.student-highlight .section-intro {
+  color: rgba(255,255,255,.68);
+}
+
+.student-highlight__inner {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 70px;
+  align-items: end;
+}
+
+.student-highlight__links {
+  display: grid;
+  gap: 10px;
+}
+
+.student-highlight__links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.045);
+  color: rgba(255,255,255,.84);
+  font-size: 13px;
+  transition: 180ms ease;
+}
+
+.student-highlight__links a:hover {
+  transform: translateX(4px);
+  border-color: rgba(228,198,127,.42);
+  color: #fff;
+}
+
+.admissions-action-band {
+  background: #fffdf8;
+  border-top: 1px solid var(--line);
+}
+
+.admissions-action-band__inner {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: end;
+  gap: 60px;
+}
+
+.admissions-action-band__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.contact-panel__logo {
+  text-align: center;
+}
+
+.contact-panel__logo img {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.contact-panel__logo p {
+  max-width: 420px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.contact-card a {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.contact-card a:hover {
+  color: var(--gold-dark);
+}
+
+.contact-card small {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.gallery-grid--current .gallery-card__image {
+  aspect-ratio: 4 / 3;
+}
+
+.site-footer__bottom a {
+  color: #e4c67f;
+  font-weight: 700;
+}
+
+.site-footer__bottom a:hover {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .student-highlight__inner,
+  .admissions-action-band__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .admissions-action-band__buttons {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .facilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-card__image {
+    min-height: 280px;
+  }
+
+  .student-highlight__links a {
+    padding: 14px;
+  }
+
+  .admissions-action-band__buttons {
+    display: grid;
+  }
+
+  .admissions-action-band__buttons .button {
+    width: 100%;
+  }
+}
