@@ -4162,3 +4162,91 @@ button,
 a {
   touch-action: manipulation;
 }
+
+
+/* Official crest branding + logo-free navbar */
+.site-header--refined .site-header__inner {
+  padding-left: 24px;
+}
+
+.header-wordmark {
+  flex: 0 0 auto;
+  color: var(--green-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+
+.header-wordmark:hover {
+  color: var(--green);
+}
+
+.site-header--refined .desktop-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-core--crest {
+  width: 148px;
+  height: 148px;
+  padding: 10px;
+  border-radius: 34px;
+  background: rgba(255, 253, 248, .96);
+  border: 1px solid rgba(232, 202, 132, .42);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.16),
+    0 0 0 12px rgba(255,255,255,.025);
+}
+
+.home-core--crest img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 12px rgba(4, 41, 31, .18));
+}
+
+.site-footer .school-crest,
+.contact-panel__logo img,
+.cta-band__logo {
+  object-fit: contain;
+  filter: drop-shadow(0 7px 14px rgba(0,0,0,.16));
+}
+
+.site-footer .school-crest {
+  width: 118px;
+  height: 132px;
+}
+
+@media (max-width: 1180px) {
+  .site-header--refined .site-header__inner {
+    padding-left: 20px;
+  }
+
+  .header-wordmark {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header--refined .site-header__inner {
+    height: 68px;
+    padding: 0 14px;
+  }
+
+  .header-wordmark {
+    font-size: 19px;
+  }
+
+  .home-core--crest {
+    width: 126px;
+    height: 126px;
+    padding: 8px;
+  }
+
+  .site-footer .school-crest {
+    width: 104px;
+    height: 116px;
+  }
+}
