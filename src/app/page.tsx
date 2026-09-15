@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -12,10 +11,10 @@ import {
   GraduationCap,
   Sparkles,
 } from "lucide-react";
-import { HeroMotion, Reveal } from "@/components/reveal";
+import { Reveal } from "@/components/reveal";
+import { AcademicHero } from "@/components/academic-hero";
 import { galleryImages, historyTimeline, school } from "@/lib/site-data";
 
-const heroImage = galleryImages[0].src;
 
 export default function HomePage() {
   const academicCards = [
@@ -29,30 +28,18 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="hero" style={{ "--hero-image": `url("${heroImage}")` } as CSSProperties}>
-        <div className="hero__inner">
-          <div className="hero__content">
-            <HeroMotion>
-              <p className="eyebrow">Panjgur · Balochistan · Pakistan</p>
-              <h1>Where learning became a <em>movement</em>.</h1>
-              <p className="hero__lead">
-                The Oasis School grew from a small English language centre into a school community that helped widen educational opportunity in Panjgur.
-              </p>
-              <div className="hero__actions">
-                <Link className="button button--light" href="/about">Discover The Oasis <ArrowRight size={16} /></Link>
-                <Link className="button button--ghost" href="/admissions">Admissions</Link>
-              </div>
-            </HeroMotion>
-          </div>
-
-          <HeroMotion>
-            <div className="hero__logo-card">
-              <Image src="/oasis-logo.svg" alt="The Oasis School Panjgur logo" width={255} height={288} priority />
-              <span>{school.tagline}</span>
-            </div>
-          </HeroMotion>
-        </div>
-      </section>
+      <AcademicHero
+        home
+        eyebrow="The Oasis School · Panjgur"
+        title={<>Where learning became a <em>movement</em>.</>}
+        description="The Oasis School grew from a small English language centre into a school community that helped widen educational opportunity in Panjgur."
+        actions={
+          <>
+            <Link className="button button--light" href="/about">Discover The Oasis <ArrowRight size={16} /></Link>
+            <Link className="button button--ghost" href="/admissions">Admissions</Link>
+          </>
+        }
+      />
 
       <section className="welcome-strip">
         <div className="welcome-strip__inner">
