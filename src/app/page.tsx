@@ -19,7 +19,38 @@ import { galleryImages, historyTimeline, school } from "@/lib/site-data";
 import { currentGalleryImages } from "@/lib/current-gallery";
 
 export const metadata: Metadata = {
+  title: "The Oasis School Panjgur | Education in Balochistan",
+  description:
+    "The Oasis School in Panjgur, Balochistan — English-medium learning, science, arts, computing, reading, student activities and a long educational legacy.",
+  keywords: [
+    "The Oasis School Panjgur",
+    "The Oasis Panjgur",
+    "Oasis Academy Panjgur",
+    "school in Panjgur",
+    "English medium school Panjgur",
+    "education in Balochistan",
+  ],
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "The Oasis School Panjgur",
+    description:
+      "Learning, confidence and opportunity at The Oasis School in Panjgur, Balochistan.",
+    url: "/",
+    type: "website",
+    images: [
+      {
+        url: "/gallery/1000065063.webp",
+        alt: "Students at The Oasis School, Panjgur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Oasis School Panjgur",
+    description:
+      "Learning, confidence and opportunity at The Oasis School in Panjgur, Balochistan.",
+    images: ["/gallery/1000065063.webp"],
+  },
 };
 
 
