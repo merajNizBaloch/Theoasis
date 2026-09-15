@@ -267,7 +267,7 @@ export default function HomePage() {
 
       <section className="cta-band">
         <Reveal className="cta-band__inner">
-          <Image className="cta-band__logo" src="/oasis-logo.svg" alt="The Oasis School logo" width={145} height={165} />
+          <Image className="cta-band__logo" src="/oasis-logo.webp" alt="The Oasis School logo" width={145} height={165} />
           <p className="eyebrow" style={{justifyContent:"center"}}>The Oasis School · Panjgur</p>
           <h2>Your next chapter can begin here.</h2>
           <p>Visit the school to learn about available classes, admission requirements and the learning environment at The Oasis.</p>
