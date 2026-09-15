@@ -10,6 +10,7 @@ import {
   UsersRound,
   GraduationCap,
   Sparkles,
+  ExternalLink,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { AcademicHero } from "@/components/academic-hero";
@@ -52,6 +53,44 @@ export default function HomePage() {
             <p className="welcome-strip__copy">
               The Oasis began with a practical challenge: capable students needed stronger English to compete in higher education. From that starting point came a wider academic institution, an English-medium school, computer learning, a library and a growing culture of educational ambition.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="leadership-strip">
+        <div className="section leadership-strip__inner">
+          <Reveal className="leadership-strip__visual">
+            <Image
+              src={currentGalleryImages[0].src}
+              alt={currentGalleryImages[0].alt}
+              fill
+              sizes="(max-width: 760px) 100vw, 45vw"
+            />
+            <span>Teachers at The Oasis School</span>
+          </Reveal>
+
+          <Reveal className="leadership-strip__copy" delay={0.07}>
+            <p className="section-kicker">Current leadership</p>
+            <h2 className="section-title">Guiding The Oasis forward.</h2>
+            <div className="principal-card">
+              <span className="principal-card__monogram">NB</span>
+              <div>
+                <small>{school.principal.title}</small>
+                <h3>{school.principal.name}</h3>
+                <p>
+                  Leading The Oasis School in Panjgur and carrying forward its commitment to learning,
+                  confidence and opportunity for students.
+                </p>
+                <a
+                  className="principal-card__link"
+                  href={school.principal.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Professional profile <ExternalLink size={14} />
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
