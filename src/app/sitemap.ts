@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://theoasis.example";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://the-oasis-academy.vercel.app";
   return ["", "/about", "/history", "/academics", "/admissions", "/gallery", "/contact"].map((path) => ({
     url: `${base}${path}`,
     lastModified: new Date(),
