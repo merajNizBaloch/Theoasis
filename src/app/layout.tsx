@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/oasis-logo.svg",
+    icon: "/oasis-logo.webp",
   },
 };
 
