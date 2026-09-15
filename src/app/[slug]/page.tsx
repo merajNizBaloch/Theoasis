@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { AcademicHero, type HeroVariant } from "@/components/academic-hero";
 import { galleryImages, historyTimeline, pageContent, school } from "@/lib/site-data";
+import { currentGalleryImages } from "@/lib/current-gallery";
 
 const validSlugs = ["about", "history", "academics", "student-life", "admissions", "gallery", "contact"] as const;
 type Slug = (typeof validSlugs)[number];
@@ -60,7 +61,14 @@ function PageHero({
 
 function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
   const content = pageContent[slug];
-  const visualIndex = slug === "about" ? 15 : slug === "academics" ? 4 : slug === "student-life" ? 9 : slug === "admissions" ? 12 : 0;
+  const currentPhotoSets = {
+    about: [currentGalleryImages[0], currentGalleryImages[3], currentGalleryImages[5]],
+    academics: [currentGalleryImages[4], currentGalleryImages[8], currentGalleryImages[1]],
+    "student-life": [currentGalleryImages[2], currentGalleryImages[5], currentGalleryImages[6]],
+    admissions: [currentGalleryImages[0], currentGalleryImages[4], currentGalleryImages[8]],
+    contact: [],
+  } as const;
+  const photoSet = currentPhotoSets[slug as keyof typeof currentPhotoSets] ?? [];
 
   return (
     <>
@@ -92,18 +100,15 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
         </div>
       </section>
 
-      {slug !== "contact" && (
+      {slug !== "contact" && photoSet.length > 0 && (
         <section className="page-photo-band">
           <div className="section page-photo-band__grid">
-            {[visualIndex, visualIndex + 1, visualIndex + 2].map((index, i) => {
-              const image = galleryImages[index % galleryImages.length];
-              return (
-                <Reveal className="page-photo-band__item" delay={i * .05} key={image.src}>
-                  <Image src={image.src} alt={image.alt} fill sizes="(max-width:760px) 100vw, 33vw" unoptimized />
-                  <span>{image.caption}</span>
-                </Reveal>
-              );
-            })}
+            {photoSet.map((image, i) => (
+              <Reveal className="page-photo-band__item" delay={i * .05} key={image.src}>
+                <Image src={image.src} alt={image.alt} fill sizes="(max-width:760px) 100vw, 33vw" />
+                <span>{image.caption}</span>
+              </Reveal>
+            ))}
           </div>
         </section>
       )}
@@ -227,9 +232,9 @@ function HistoryPage() {
           <h2 className="section-title">People and moments from The Oasis community.</h2>
         </Reveal>
         <div className="gallery-preview gallery-preview--expanded">
-          {galleryImages.slice(1,9).map((image, index) => (
+          {[currentGalleryImages[9], ...galleryImages.slice(1,8)].map((image, index) => (
             <Reveal className="gallery-tile" delay={index * .03} key={image.src}>
-              <Image src={image.src} alt={image.alt} fill sizes="(max-width:760px) 50vw, 23vw" unoptimized />
+              <Image src={image.src} alt={image.alt} fill sizes="(max-width:760px) 50vw, 23vw" unoptimized={image.src.startsWith("http")} />
               <span>{image.caption}</span>
             </Reveal>
           ))}
@@ -250,15 +255,44 @@ function GalleryPage() {
       />
 
       <section className="section">
-        <div className="gallery-grid">
-          {galleryImages.map((image, index) => (
+        <Reveal>
+          <p className="section-kicker">The Oasis today</p>
+          <h2 className="section-title">Learning, participation and school life.</h2>
+          <p className="section-intro">
+            Recent photographs from classrooms, academic programmes, the computer lab, library and educational visits.
+          </p>
+        </Reveal>
+        <div className="gallery-grid" style={{marginTop: 42}}>
+          {currentGalleryImages.map((image, index) => (
             <Reveal className="gallery-card" delay={(index % 3) * .025} key={image.src}>
               <div className="gallery-card__image">
-                <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" unoptimized />
+                <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
               </div>
               <p>{image.caption}</p>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section className="history-band">
+        <div className="section">
+          <Reveal>
+            <p className="section-kicker">From the archives</p>
+            <h2 className="section-title">Earlier chapters of The Oasis story.</h2>
+            <p className="section-intro">
+              Older photographs preserved from The Oasis community, including school events, teachers and memories from earlier years.
+            </p>
+          </Reveal>
+          <div className="gallery-grid" style={{marginTop: 42}}>
+            {galleryImages.map((image, index) => (
+              <Reveal className="gallery-card" delay={(index % 3) * .025} key={image.src}>
+                <div className="gallery-card__image">
+                  <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 33vw" unoptimized />
+                </div>
+                <p>{image.caption}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </>
