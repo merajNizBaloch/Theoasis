@@ -1,26 +1,27 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight, MapPin } from "lucide-react";
+import { Menu, X, ArrowUpRight, MapPin, Phone, Clock3 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { nav, school } from "@/lib/site-data";
 
 export function OasisMark({ compact = false }: { compact?: boolean }) {
   return (
     <span className={compact ? "brand brand--compact" : "brand"}>
-      <span className="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 64 64" role="img">
-          <path d="M12 44c7-5 14-7 20-7s13 2 20 7v8c-7-4-14-6-20-6s-13 2-20 6z" />
-          <path d="M32 15c-8 2-14 8-16 16 7-5 12-6 16-4-1-6 0-10 0-12z" />
-          <path d="M34 15c8 2 14 8 16 16-7-5-12-6-16-4 1-6 0-10 0-12z" />
-          <path d="M32 23v21" />
-          <circle cx="32" cy="11" r="3.5" />
-        </svg>
+      <span className="brand__logo">
+        <Image
+          src="/oasis-logo.svg"
+          alt="The Oasis School Panjgur logo"
+          width={72}
+          height={82}
+          priority
+        />
       </span>
       <span className="brand__text">
         <strong>OASIS</strong>
-        {!compact && <small>THE ACADEMY · PANJGUR</small>}
+        {!compact && <small>THE SCHOOL · PANJGUR</small>}
       </span>
     </span>
   );
@@ -35,7 +36,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <Link href="/" aria-label="The Oasis Academy home">
+        <Link href="/" aria-label="The Oasis School home">
           <OasisMark />
         </Link>
 
@@ -84,24 +85,27 @@ export function SiteFooter() {
         <div>
           <OasisMark />
           <p className="footer-note">
-            A modern concept website celebrating the documented educational legacy of The Oasis Academy, Panjgur.
+            The Oasis School has been part of Panjgur&apos;s educational journey for generations — growing from English-language teaching into a wider school community.
           </p>
         </div>
+
         <div>
           <p className="footer-label">Explore</p>
           <div className="footer-links">
-            {nav.slice(1, 6).map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
+            {nav.slice(1).map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
           </div>
         </div>
+
         <div>
-          <p className="footer-label">Location</p>
+          <p className="footer-label">School information</p>
           <p className="footer-location"><MapPin size={17} /> {school.location}</p>
-          <p className="footer-small">Archival public phone listing: {school.archivalPhone}</p>
+          <p className="footer-location"><Phone size={16} /> {school.phone}</p>
+          <p className="footer-location"><Clock3 size={16} /> {school.hours}</p>
         </div>
       </div>
       <div className="site-footer__bottom">
         <span>© {new Date().getFullYear()} {school.name}</span>
-        <span>Historical facts are sourced from public records; current operational details should be confirmed with the academy.</span>
+        <span>{school.tagline}</span>
       </div>
     </footer>
   );
