@@ -20,9 +20,6 @@ export const metadata: Metadata = {
     "Balochistan education",
     "Sir Zahir Hussain",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "The Oasis School — Panjgur",
     description: "A legacy of learning, confidence and opportunity in Panjgur, Balochistan.",
@@ -64,7 +61,6 @@ const structuredData = {
     addressRegion: "Balochistan",
     addressCountry: "PK",
   },
-  sameAs: [],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
