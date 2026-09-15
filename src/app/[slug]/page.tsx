@@ -333,7 +333,7 @@ function ContactDetails() {
     <section className="contact-panel">
       <div className="section contact-panel__grid">
         <Reveal className="contact-panel__logo">
-          <Image src="/oasis-logo.svg" alt="The Oasis School Panjgur logo" width={250} height={282} />
+          <Image src="/oasis-logo.webp" alt="The Oasis School Panjgur logo" width={250} height={282} />
         </Reveal>
 
         <div className="contact-cards">
