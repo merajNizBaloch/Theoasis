@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2 } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
-import { AcademicHero } from "@/components/academic-hero";
+import { AcademicHero, type HeroVariant } from "@/components/academic-hero";
 import { galleryImages, historyTimeline, pageContent, school } from "@/lib/site-data";
 
 const validSlugs = ["about", "history", "academics", "student-life", "admissions", "gallery", "contact"] as const;
@@ -41,16 +41,19 @@ function PageHero({
   eyebrow,
   title,
   intro,
+  variant,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
+  variant: HeroVariant;
 }) {
   return (
     <AcademicHero
       eyebrow={eyebrow}
       title={title}
       description={intro}
+      variant={variant}
     />
   );
 }
@@ -61,7 +64,7 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
 
   return (
     <>
-      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} />
+      <PageHero eyebrow={content.eyebrow} title={content.title} intro={content.intro} variant={slug as HeroVariant} />
 
       <section className="section">
         <div className="content-grid">
@@ -140,6 +143,7 @@ function HistoryPage() {
         eyebrow="Our History"
         title="From a small language centre to a Panjgur institution."
         intro="The Oasis story began with English-language teaching and grew into a wider school community that helped shape educational ambition in Panjgur."
+        variant="history"
       />
 
       <section className="section">
@@ -242,6 +246,7 @@ function GalleryPage() {
         eyebrow="Gallery"
         title="The Oasis story in photographs."
         intro="Teachers, students, school gatherings and memories from The Oasis School community in Panjgur."
+        variant="gallery"
       />
 
       <section className="section">
