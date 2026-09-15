@@ -29,7 +29,7 @@ export default function HomePage() {
   return (
     <>
       <AcademicHero
-        home
+        variant="home"
         eyebrow="The Oasis School · Panjgur"
         title={<>Where learning became a <em>movement</em>.</>}
         description="The Oasis School grew from a small English language centre into a school community that helped widen educational opportunity in Panjgur."
