@@ -10,19 +10,14 @@ import { nav, school } from "@/lib/site-data";
 export function OasisMark({ compact = false }: { compact?: boolean }) {
   return (
     <span className={compact ? "brand brand--compact" : "brand"}>
-      <span className="brand__logo">
-        <Image
-          src="/oasis-logo.svg"
-          alt="The Oasis School Panjgur logo"
-          width={72}
-          height={82}
-          priority
-        />
-      </span>
-      <span className="brand__text">
-        <strong>OASIS</strong>
-        {!compact && <small>THE SCHOOL · PANJGUR</small>}
-      </span>
+      <Image
+        className="school-crest"
+        src="/oasis-logo.svg"
+        alt="The Oasis School Panjgur"
+        width={104}
+        height={114}
+        priority
+      />
     </span>
   );
 }
@@ -34,9 +29,16 @@ export function SiteHeader() {
   useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="site-header">
+    <header className="site-header site-header--academic">
+      <div className="school-topline">
+        <div className="school-topline__inner">
+          <span>Knowledge · Character · Opportunity</span>
+          <span>Panjgur · Balochistan</span>
+        </div>
+      </div>
+
       <div className="site-header__inner">
-        <Link href="/" aria-label="The Oasis School home">
+        <Link className="header-brand" href="/" aria-label="The Oasis School home">
           <OasisMark />
         </Link>
 
@@ -61,17 +63,24 @@ export function SiteHeader() {
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X size={23} /> : <Menu size={23} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {open && (
         <nav className="mobile-nav" aria-label="Mobile navigation">
           {nav.map((item) => (
-            <Link className={pathname === item.href ? "mobile-nav__link active" : "mobile-nav__link"} href={item.href} key={item.href}>
+            <Link
+              className={pathname === item.href ? "mobile-nav__link active" : "mobile-nav__link"}
+              href={item.href}
+              key={item.href}
+            >
               {item.label}
             </Link>
           ))}
+          <Link className="mobile-nav__cta" href="/admissions">
+            Admissions <ArrowUpRight size={16}/>
+          </Link>
         </nav>
       )}
     </header>
