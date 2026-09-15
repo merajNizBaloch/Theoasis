@@ -56,7 +56,12 @@ export function SiteHeader() {
           {nav.map((item) => {
             const active = pathname === item.href;
             return (
-              <Link className={active ? "nav-link nav-link--active" : "nav-link"} href={item.href} key={item.href}>
+              <Link
+                className={active ? "nav-link nav-link--active" : "nav-link"}
+                href={item.href}
+                key={item.href}
+                aria-current={active ? "page" : undefined}
+              >
                 {item.label}
               </Link>
             );
@@ -85,6 +90,7 @@ export function SiteHeader() {
               className={pathname === item.href ? "mobile-nav__link active" : "mobile-nav__link"}
               href={item.href}
               key={item.href}
+              aria-current={pathname === item.href ? "page" : undefined}
             >
               {item.label}
             </Link>
