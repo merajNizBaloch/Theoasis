@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   applicationName: "The Oasis School",
   title: {
     default: "The Oasis School Panjgur | Education in Balochistan",
-    template: "%s | The Oasis School Panjgur",
+    template: "%s | The Oasis School",
   },
   description:
     "The Oasis School in Panjgur, Balochistan — English-medium learning, science, arts, computing, reading, student activities and a long educational legacy.",
