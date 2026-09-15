@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, MapPin, Phone, Clock3, CheckCircle2, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { AcademicHero, type HeroVariant } from "@/components/academic-hero";
@@ -99,6 +99,35 @@ function StandardPage({ slug }: { slug: keyof typeof pageContent }) {
           </div>
         </div>
       </section>
+
+      {slug === "about" && (
+        <section className="principal-section">
+          <div className="section principal-section__inner">
+            <Reveal className="principal-section__intro">
+              <p className="section-kicker">Leadership today</p>
+              <h2 className="section-title">Meet the Principal.</h2>
+              <p className="section-intro">
+                The Oasis continues its educational journey under current Principal {school.principal.name}.
+              </p>
+            </Reveal>
+
+            <Reveal className="principal-profile" delay={0.07}>
+              <span className="principal-profile__monogram">NB</span>
+              <div className="principal-profile__content">
+                <small>{school.principal.title} · The Oasis School</small>
+                <h3>{school.principal.name}</h3>
+                <p>
+                  Leading the school community in Panjgur while building on The Oasis tradition of academic
+                  opportunity, communication, student confidence and educational access.
+                </p>
+                <a href={school.principal.linkedin} target="_blank" rel="noreferrer">
+                  View professional profile <ExternalLink size={15}/>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {slug !== "contact" && photoSet.length > 0 && (
         <section className="page-photo-band">
