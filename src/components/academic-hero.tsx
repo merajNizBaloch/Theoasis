@@ -29,7 +29,7 @@ function HomeVisual() {
       <div className="home-core-ring home-core-ring--three" />
       <div className="home-core home-core--crest">
         <img
-          src="/oasis-logo.webp"
+          src="/oasis-logo-v2.webp"
           alt=""
           width="150"
           height="150"
