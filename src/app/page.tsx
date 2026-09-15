@@ -14,6 +14,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { AcademicHero } from "@/components/academic-hero";
 import { galleryImages, historyTimeline, school } from "@/lib/site-data";
+import { currentGalleryImages } from "@/lib/current-gallery";
 
 
 export default function HomePage() {
@@ -146,10 +147,10 @@ export default function HomePage() {
 
           <Reveal className="photo-story__visual" delay={0.08}>
             <div className="photo-stack photo-stack--a">
-              <Image src={galleryImages[6].src} alt={galleryImages[6].alt} fill sizes="(max-width:760px) 55vw, 30vw" unoptimized />
+              <Image src={currentGalleryImages[5].src} alt={currentGalleryImages[5].alt} fill sizes="(max-width:760px) 55vw, 30vw" />
             </div>
             <div className="photo-stack photo-stack--b">
-              <Image src={galleryImages[7].src} alt={galleryImages[7].alt} fill sizes="(max-width:760px) 48vw, 24vw" unoptimized />
+              <Image src={currentGalleryImages[2].src} alt={currentGalleryImages[2].alt} fill sizes="(max-width:760px) 48vw, 24vw" />
             </div>
           </Reveal>
         </div>
@@ -186,9 +187,9 @@ export default function HomePage() {
         </Reveal>
 
         <div className="gallery-preview gallery-preview--expanded">
-          {galleryImages.slice(0,8).map((image, index) => (
+          {currentGalleryImages.slice(0,8).map((image, index) => (
             <Reveal className="gallery-tile" delay={index * .03} key={image.src}>
-              <Image src={image.src} alt={image.alt} fill sizes={index === 0 ? "(max-width: 760px) 100vw, 38vw" : "(max-width: 760px) 50vw, 22vw"} unoptimized />
+              <Image src={image.src} alt={image.alt} fill sizes={index === 0 ? "(max-width: 760px) 100vw, 38vw" : "(max-width: 760px) 50vw, 22vw"} />
               <span>{image.caption}</span>
             </Reveal>
           ))}
