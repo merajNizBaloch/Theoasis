@@ -1,28 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 700" role="img" aria-labelledby="title desc">
-  <title id="title">The Oasis School Panjgur logo</title>
-  <desc id="desc">Green school crest with palm tree, three stars and The Oasis School Panjgur name.</desc>
-  <defs>
-    <path id="topArc" d="M78 270 A240 240 0 0 1 542 270"/>
-  </defs>
-  <rect width="620" height="700" fill="white"/>
-  <text fill="#198b52" font-family="Georgia,Times New Roman,serif" font-weight="700" font-size="43" letter-spacing="1.4">
-    <textPath href="#topArc" startOffset="50%" text-anchor="middle">THE OASIS SCHOOL PANJGUR</textPath>
-  </text>
-  <path d="M165 246 C220 270 266 267 310 236 C354 267 400 270 455 246 L489 285 C474 330 476 408 469 460 C461 524 411 574 341 590 L310 631 L279 590 C209 574 159 524 151 460 C144 408 146 330 131 285 Z" fill="#fff" stroke="#102f25" stroke-width="9"/>
-  <g fill="#102f25">
-    <path d="M310 291 l10 24 26 2-20 17 7 25-23-14-23 14 7-25-20-17 26-2z"/>
-    <path d="M198 371 l8 19 21 2-16 13 5 20-18-11-18 11 5-20-16-13 21-2z"/>
-    <path d="M422 371 l8 19 21 2-16 13 5 20-18-11-18 11 5-20-16-13 21-2z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 680" role="img" aria-labelledby="title desc">
+  <title id="title">The Oasis School Panjgur crest</title>
+  <desc id="desc">School shield with a palm tree, three stars, and The Oasis School Panjgur name inside the crest.</desc>
+  <g fill="none" stroke="#073b2d" stroke-linejoin="round">
+    <path d="M108 122 C173 154 238 150 310 105 C382 150 447 154 512 122 L548 165 C526 225 532 320 523 401 C512 500 436 565 346 586 L310 637 L274 586 C184 565 108 500 97 401 C88 320 94 225 72 165 Z" fill="#fff" stroke-width="11"/>
   </g>
-  <g fill="#168a4f">
-    <path d="M309 382 C282 351 250 342 218 351 C246 363 264 379 278 403 C249 380 222 380 197 394 C230 403 252 420 269 447 C246 431 224 432 205 443 C235 450 260 464 279 488 C270 457 276 425 309 382Z"/>
-    <path d="M313 383 C341 350 373 340 406 350 C377 362 359 378 345 402 C374 379 401 379 426 393 C393 402 371 419 354 446 C377 430 399 431 418 442 C388 449 363 463 344 487 C353 456 347 424 313 383Z"/>
-    <path d="M309 375 C316 423 320 478 313 521 C310 539 304 550 293 554 C316 559 337 558 356 551 C334 542 332 522 333 501 C335 458 329 416 318 375Z"/>
-    <path d="M277 552 C295 539 319 535 344 543 C356 547 365 555 371 564 C338 559 305 559 272 563Z" fill="#102f25"/>
+
+  <g fill="#073b2d">
+    <path d="M310 165 l13 31 34 3-26 22 8 33-29-18-29 18 8-33-26-22 34-3z"/>
+    <path d="M184 327 l11 26 28 2-21 18 7 27-25-15-24 15 7-27-22-18 29-2z"/>
+    <path d="M436 327 l11 26 28 2-21 18 7 27-25-15-24 15 7-27-22-18 29-2z"/>
   </g>
-  <path d="M179 493 C231 516 271 521 310 506 C349 521 389 516 441 493 L457 523 C401 548 354 557 310 541 C266 557 219 548 163 523Z" fill="white" stroke="#102f25" stroke-width="6"/>
-  <text x="310" y="526" text-anchor="middle" fill="#102f25" font-family="Georgia,Times New Roman,serif" font-size="19" font-weight="700">THE OASIS SCHOOL PANJGUR</text>
-  <rect x="251" y="541" width="118" height="42" rx="2" fill="white" stroke="#102f25" stroke-width="5"/>
-  <text x="310" y="570" text-anchor="middle" fill="#102f25" font-family="Georgia,Times New Roman,serif" font-size="22" font-weight="700">PANJGOOR</text>
-  <text x="310" y="680" text-anchor="middle" fill="#198b52" font-family="Georgia,Times New Roman,serif" font-size="58" font-weight="700" letter-spacing="2">PANJGOOR</text>
+
+  <g fill="#12a94d">
+    <path d="M309 302 C278 265 241 253 204 264 C236 279 258 298 275 327 C242 301 210 301 181 317 C220 328 246 348 265 381 C238 362 213 364 191 377 C226 385 255 403 278 431 C268 395 274 355 309 302Z"/>
+    <path d="M315 302 C346 264 383 252 421 263 C388 278 366 297 349 326 C382 300 414 300 443 316 C404 327 378 347 359 380 C386 361 411 363 433 376 C398 384 369 402 346 430 C356 394 350 354 315 302Z"/>
+  </g>
+
+  <path d="M309 295 C318 354 324 422 316 476 C312 500 304 513 289 520 C319 526 346 525 370 516 C344 506 341 481 343 455 C346 402 337 348 323 295Z" fill="#073b2d"/>
+  <path d="M268 518 C292 501 321 496 352 506 C367 511 380 522 387 534 C345 527 304 527 261 533Z" fill="#073b2d"/>
+
+  <path d="M143 466 C208 498 261 504 310 486 C359 504 412 498 477 466 L493 502 C423 536 361 547 310 527 C259 547 197 536 127 502 Z" fill="#fff" stroke="#073b2d" stroke-width="7" stroke-linejoin="round"/>
+  <text x="310" y="503" text-anchor="middle" fill="#073b2d" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="700">THE OASIS SCHOOL PANJGUR</text>
+
+  <rect x="244" y="525" width="132" height="48" rx="2" fill="#fff" stroke="#073b2d" stroke-width="6"/>
+  <text x="310" y="558" text-anchor="middle" fill="#073b2d" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="700">PANJGOOR</text>
 </svg>
