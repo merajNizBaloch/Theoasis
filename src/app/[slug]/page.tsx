@@ -11,14 +11,54 @@ import { currentGalleryImages } from "@/lib/current-gallery";
 const validSlugs = ["about", "history", "academics", "student-life", "admissions", "gallery", "contact"] as const;
 type Slug = (typeof validSlugs)[number];
 
-const titleMap: Record<Slug, string> = {
-  about: "About",
-  history: "History",
-  academics: "Academics",
-  "student-life": "Student Life",
-  admissions: "Admissions",
-  gallery: "Gallery",
-  contact: "Contact",
+const seoMap: Record<Slug, {
+  title: string;
+  description: string;
+  keywords: string[];
+  image: string;
+}> = {
+  about: {
+    title: "About The Oasis School",
+    description: "Learn about The Oasis School in Panjgur, its educational purpose, community, leadership and long connection with learning in Balochistan.",
+    keywords: ["about The Oasis School", "The Oasis Panjgur", "school leadership Panjgur"],
+    image: "/gallery/1000065066.webp",
+  },
+  history: {
+    title: "History of The Oasis School",
+    description: "Explore the history of The Oasis School Panjgur, from its English-language beginnings to a wider educational institution serving generations of learners.",
+    keywords: ["The Oasis School history", "Oasis Academy history Panjgur", "Sir Zahir Hussain"],
+    image: "/gallery/1000065065.webp",
+  },
+  academics: {
+    title: "Academics & Learning",
+    description: "Explore academics at The Oasis School Panjur, including English-medium learning, science, arts, computer education, communication and library-based study.",
+    keywords: ["The Oasis academics", "computer education Panjgur", "English medium school Panjgur", "school library Panjgur"],
+    image: "/gallery/1000065059.webp",
+  },
+  "student-life": {
+    title: "Student Life",
+    description: "Discover student life at The Oasis School Panjgur, including public speaking, school programmes, educational visits, friendships and participation beyond the classroom.",
+    keywords: ["student life The Oasis", "school activities Panjgur", "student programmes Panjgur"],
+    image: "/gallery/1000065063.webp",
+  },
+  admissions: {
+    title: "Admissions",
+    description: "Admissions information for The Oasis School Panjgur, including how to visit, ask about placement, prepare documents and contact the school.",
+    keywords: ["The Oasis School admissions", "school admissions Panjgur", "admission Panjgur school"],
+    image: "/gallery/1000065064.webp",
+  },
+  gallery: {
+    title: "School Gallery",
+    description: "View photographs from The Oasis School Panjgur showing academics, student activities, educational visits, facilities and moments from the school archive.",
+    keywords: ["The Oasis School gallery", "Oasis Panjgur photos", "school photos Panjgur"],
+    image: "/gallery/1000065063.webp",
+  },
+  contact: {
+    title: "Contact The Oasis School",
+    description: "Contact The Oasis School in Panjgur, Balochistan. Find location, telephone details, school hours and directions.",
+    keywords: ["The Oasis School contact", "The Oasis School Panjgur phone", "school location Panjgur"],
+    image: "/oasis-logo.webp",
+  },
 };
 
 export function generateStaticParams() {
@@ -32,11 +72,34 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   if (!validSlugs.includes(slug as Slug)) return {};
+
+  const key = slug as Slug;
+  const seo = seoMap[key];
+
   return {
-    title: titleMap[slug as Slug],
-    description: `${titleMap[slug as Slug]} — The Oasis School, Panjgur, Balochistan.`,
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
     alternates: {
       canonical: `/${slug}`,
+    },
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      url: `/${slug}`,
+      type: "website",
+      images: [
+        {
+          url: seo.image,
+          alt: `${seo.title} — The Oasis School Panjgur`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.title,
+      description: seo.description,
+      images: [seo.image],
     },
   };
 }
@@ -433,8 +496,41 @@ export default async function ContentPage({
   const { slug } = await params;
   if (!validSlugs.includes(slug as Slug)) notFound();
 
-  if (slug === "history") return <HistoryPage />;
-  if (slug === "gallery") return <GalleryPage />;
+  const key = slug as Slug;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? school.website;
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: seoMap[key].title,
+        item: `${siteUrl}/${slug}`,
+      },
+    ],
+  };
 
-  return <StandardPage slug={slug as keyof typeof pageContent} />;
+  const page =
+    slug === "history"
+      ? <HistoryPage />
+      : slug === "gallery"
+        ? <GalleryPage />
+        : <StandardPage slug={slug as keyof typeof pageContent} />;
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
+      {page}
+    </>
+  );
 }
