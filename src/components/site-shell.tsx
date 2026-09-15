@@ -48,8 +48,8 @@ export function SiteHeader() {
   return (
     <header className="site-header site-header--refined">
       <div className="site-header__inner">
-        <Link className="header-brand" href="/" aria-label="The Oasis School home">
-          <OasisMark />
+        <Link className="header-wordmark" href="/" aria-label="The Oasis School home">
+          The Oasis
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
