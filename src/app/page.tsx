@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { AcademicHero } from "@/components/academic-hero";
-import { galleryImages, historyTimeline } from "@/lib/site-data";
+import { galleryImages, historyTimeline, school } from "@/lib/site-data";
 import { currentGalleryImages } from "@/lib/current-gallery";
 
 export const metadata: Metadata = {
@@ -75,16 +75,26 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal className="leadership-strip__copy" delay={0.07}>
-            <p className="section-kicker">The school today</p>
-            <h2 className="section-title">A living school community.</h2>
-            <p className="section-intro">
-              The Oasis continues to bring together teachers and students around academic learning,
-              communication, technology, reading and participation beyond the classroom.
-            </p>
-            <div className="school-today-points">
-              <span><strong>Academic learning</strong> English-medium study with science, arts and communication.</span>
-              <span><strong>Digital skills</strong> Computer learning supported by a dedicated lab.</span>
-              <span><strong>Reading culture</strong> Library access for research and independent study.</span>
+            <p className="section-kicker">Current leadership</p>
+            <h2 className="section-title">Guiding The Oasis forward.</h2>
+            <div className="principal-card">
+              <span className="principal-card__monogram">NB</span>
+              <div>
+                <small>{school.principal.title}</small>
+                <h3>{school.principal.name}</h3>
+                <p>
+                  Leading The Oasis School in Panjgur and carrying forward its commitment to academic learning,
+                  communication, student confidence, technology and opportunity.
+                </p>
+                <a
+                  className="principal-card__link"
+                  href={school.principal.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Professional profile <ExternalLink size={14} />
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
