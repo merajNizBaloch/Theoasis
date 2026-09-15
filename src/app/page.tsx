@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { ArrowRight, BookOpen, Languages, Library, MonitorUp } from "lucide-react";
 import { HeroMotion, Reveal } from "@/components/reveal";
 import { galleryImages, historyTimeline } from "@/lib/site-data";
@@ -9,7 +10,7 @@ const heroImage = galleryImages[0].src;
 export default function HomePage() {
   return (
     <>
-      <section className="hero" style={{ "--hero-image": `url("${heroImage}")` } as React.CSSProperties}>
+      <section className="hero" style={{ "--hero-image": `url("${heroImage}")` } as CSSProperties}>
         <div className="hero__inner">
           <div className="hero__content">
             <HeroMotion>
