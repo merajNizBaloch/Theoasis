@@ -103,6 +103,9 @@ export function SiteFooter() {
           <p className="footer-location"><MapPin size={17} /> {school.location}</p>
           <p className="footer-location"><Phone size={16} /> {school.phone}</p>
           <p className="footer-location"><Clock3 size={16} /> {school.hours}</p>
+          <p className="footer-small">
+            Principal · <a href={school.principal.linkedin} target="_blank" rel="noreferrer">{school.principal.name}</a>
+          </p>
         </div>
       </div>
       <div className="site-footer__bottom">
