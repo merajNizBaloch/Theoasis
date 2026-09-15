@@ -28,6 +28,23 @@ export function SiteHeader() {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
     <header className="site-header site-header--refined">
       <div className="site-header__inner">
@@ -54,6 +71,7 @@ export function SiteHeader() {
           className="menu-button"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((value) => !value)}
         >
           {open ? <X size={23} /> : <Menu size={23} />}
@@ -61,7 +79,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="mobile-nav" aria-label="Mobile navigation">
+        <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
           {nav.map((item) => (
             <Link
               className={pathname === item.href ? "mobile-nav__link active" : "mobile-nav__link"}
