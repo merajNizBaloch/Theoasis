@@ -1677,3 +1677,247 @@ main {
     padding: 18px;
   }
 }
+
+
+/* Academic header v3 */
+.site-header.site-header--academic {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: #073b2d;
+  border-bottom: 0;
+  box-shadow: 0 12px 34px rgba(4, 35, 26, .16);
+  backdrop-filter: none;
+  overflow: visible;
+}
+
+.school-topline {
+  background: #052f25;
+  border-bottom: 1px solid rgba(226, 194, 113, .24);
+}
+
+.school-topline__inner {
+  max-width: 1240px;
+  min-height: 32px;
+  margin: 0 auto;
+  padding: 0 24px 0 126px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: rgba(255,255,255,.62);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.site-header--academic .site-header__inner {
+  position: relative;
+  max-width: 1240px;
+  height: 78px;
+  margin: 0 auto;
+  padding: 0 24px 0 126px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-brand {
+  position: absolute;
+  left: 24px;
+  top: -27px;
+  width: 88px;
+  height: 104px;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  transition: transform 180ms ease;
+}
+
+.header-brand:hover {
+  transform: translateY(-2px);
+}
+
+.school-crest {
+  display: block;
+  width: 88px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 12px rgba(0,0,0,.22));
+}
+
+.site-header--academic .desktop-nav {
+  margin-left: 0;
+  flex: 1;
+  justify-content: center;
+  gap: 4px;
+}
+
+.site-header--academic .nav-link {
+  position: relative;
+  padding: 29px 11px 25px;
+  border-radius: 0;
+  color: rgba(255,255,255,.78);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.site-header--academic .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 17px;
+  height: 2px;
+  background: #e1be6f;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.site-header--academic .nav-link:hover,
+.site-header--academic .nav-link--active {
+  color: #fff;
+  background: transparent;
+}
+
+.site-header--academic .nav-link:hover::after,
+.site-header--academic .nav-link--active::after {
+  transform: scaleX(1);
+}
+
+.site-header--academic .header-cta {
+  margin-left: 8px;
+  padding: 12px 18px;
+  min-height: 44px;
+  border: 1px solid #d9b35e;
+  background: #e4c67f;
+  color: #073b2d;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.site-header--academic .header-cta:hover {
+  background: #efd69a;
+  transform: translateY(-2px);
+}
+
+.site-header--academic .menu-button {
+  color: white;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 10px;
+  width: 43px;
+  height: 43px;
+  background: rgba(255,255,255,.05);
+}
+
+.site-header--academic .mobile-nav {
+  background: #073b2d;
+  padding: 8px 22px 22px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.site-header--academic .mobile-nav__link {
+  color: rgba(255,255,255,.78);
+  border-bottom-color: rgba(255,255,255,.1);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.site-header--academic .mobile-nav__link.active {
+  color: #e4c67f;
+}
+
+.mobile-nav__cta {
+  margin-top: 14px;
+  min-height: 46px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: #e4c67f;
+  color: #073b2d;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.site-footer .school-crest {
+  width: 110px;
+  height: 124px;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.24));
+}
+
+.site-footer .brand {
+  min-height: 124px;
+}
+
+@media (max-width: 1180px) {
+  .school-topline__inner,
+  .site-header--academic .site-header__inner {
+    padding-left: 112px;
+  }
+
+  .header-brand {
+    left: 20px;
+    width: 78px;
+  }
+
+  .school-crest {
+    width: 78px;
+    height: 92px;
+  }
+
+  .site-header--academic .desktop-nav,
+  .site-header--academic .header-cta {
+    display: none;
+  }
+
+  .site-header--academic .menu-button {
+    display: inline-grid;
+    place-items: center;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .school-topline {
+    display: none;
+  }
+
+  .site-header--academic .site-header__inner {
+    height: 70px;
+    padding: 0 16px 0 88px;
+  }
+
+  .header-brand {
+    left: 12px;
+    top: -4px;
+    width: 62px;
+    height: 76px;
+  }
+
+  .school-crest {
+    width: 62px;
+    height: 73px;
+    filter: drop-shadow(0 5px 8px rgba(0,0,0,.22));
+  }
+
+  .site-header--academic .menu-button {
+    width: 41px;
+    height: 41px;
+  }
+
+  .site-header--academic .mobile-nav {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .site-footer .school-crest {
+    width: 92px;
+    height: 104px;
+  }
+}
