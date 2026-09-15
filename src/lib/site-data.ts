@@ -237,7 +237,7 @@ export const pageContent = {
     intro: "The Oasis has long been remembered not only for classrooms, but for teachers, friendships, school gatherings, farewell events and the sense of belonging created by a close learning community.",
     blocks: [
       ["A close school community", "Students and teachers have shared a strong sense of connection through daily classroom life, school activities and milestone events."],
-      ["Celebrations & milestones", "The surviving The Oasis photo archive includes Class 10 farewell celebrations and teacher gatherings — moments that show the social side of school life alongside academics."],
+      ["Celebrations & milestones", "The Oasis photo archive includes Class 10 farewell celebrations and teacher gatherings — moments that show the social side of school life alongside academics."],
       ["Respect for teachers", "Former students often describe the school through the guidance, care and encouragement they received from teachers. That respect for educators is a recurring part of The Oasis identity."],
       ["Confidence & communication", "Language learning, classroom participation and public interaction helped many learners develop the confidence to speak, study and pursue opportunities beyond school."],
       ["Friends & memories", "For many students, The Oasis became the place where long-term friendships were formed and where years of school life became part of their personal story."],
