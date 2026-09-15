@@ -70,26 +70,16 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal className="leadership-strip__copy" delay={0.07}>
-            <p className="section-kicker">Current leadership</p>
-            <h2 className="section-title">Guiding The Oasis forward.</h2>
-            <div className="principal-card">
-              <span className="principal-card__monogram">NB</span>
-              <div>
-                <small>{school.principal.title}</small>
-                <h3>{school.principal.name}</h3>
-                <p>
-                  Leading The Oasis School in Panjgur and carrying forward its commitment to learning,
-                  confidence and opportunity for students.
-                </p>
-                <a
-                  className="principal-card__link"
-                  href={school.principal.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Professional profile <ExternalLink size={14} />
-                </a>
-              </div>
+            <p className="section-kicker">The school today</p>
+            <h2 className="section-title">A living school community.</h2>
+            <p className="section-intro">
+              The Oasis continues to bring together teachers and students around academic learning,
+              communication, technology, reading and participation beyond the classroom.
+            </p>
+            <div className="school-today-points">
+              <span><strong>Academic learning</strong> English-medium study with science, arts and communication.</span>
+              <span><strong>Digital skills</strong> Computer learning supported by a dedicated lab.</span>
+              <span><strong>Reading culture</strong> Library access for research and independent study.</span>
             </div>
           </Reveal>
         </div>
@@ -170,6 +160,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="facilities-section">
+        <div className="section">
+          <Reveal>
+            <p className="section-kicker">Learning spaces today</p>
+            <h2 className="section-title">Technology and books alongside classroom learning.</h2>
+            <p className="section-intro">
+              Current photographs show students using the computer lab and browsing the school library —
+              two spaces that reflect The Oasis tradition of practical learning and independent study.
+            </p>
+          </Reveal>
+
+          <div className="facilities-grid">
+            <Reveal className="facility-card">
+              <div className="facility-card__image">
+                <Image src={currentGalleryImages[4].src} alt={currentGalleryImages[4].alt} fill sizes="(max-width:760px) 100vw, 50vw" />
+              </div>
+              <div className="facility-card__copy">
+                <MonitorUp size={21}/>
+                <h3>Computer Lab</h3>
+                <p>Hands-on digital learning and practical computer skills.</p>
+              </div>
+            </Reveal>
+            <Reveal className="facility-card" delay={0.06}>
+              <div className="facility-card__image">
+                <Image src={currentGalleryImages[8].src} alt={currentGalleryImages[8].alt} fill sizes="(max-width:760px) 100vw, 50vw" />
+              </div>
+              <div className="facility-card__copy">
+                <Library size={21}/>
+                <h3>School Library</h3>
+                <p>Reading, research and independent exploration beyond textbooks.</p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <section className="photo-story">
         <div className="section photo-story__inner">
           <Reveal className="photo-story__copy">
@@ -239,6 +265,28 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="student-highlight">
+        <div className="section student-highlight__inner">
+          <Reveal>
+            <p className="section-kicker">Student voice beyond campus</p>
+            <h2 className="section-title">Writing that reached a wider audience.</h2>
+            <p className="section-intro">
+              In 2025, Makran Times credited Haqiq Ali Baloch of The Oasis Academy, Panjgur,
+              for the articles “The Beauty of Panjgur” and “Knowledge” — an example of student
+              expression extending beyond the classroom.
+            </p>
+          </Reveal>
+          <Reveal className="student-highlight__links" delay={0.06}>
+            <a href="https://www.scribd.com/document/913205092/Makran-Times-July-2025" target="_blank" rel="noreferrer">
+              July 2025 publication <ExternalLink size={15}/>
+            </a>
+            <a href="https://www.scribd.com/document/967612597/Nomber-October-2025" target="_blank" rel="noreferrer">
+              Oct–Nov 2025 publication <ExternalLink size={15}/>
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="values-section">
         <div className="section">
           <Reveal>
@@ -267,7 +315,7 @@ export default function HomePage() {
 
       <section className="cta-band">
         <Reveal className="cta-band__inner">
-          <Image className="cta-band__logo" src="/oasis-logo.webp" alt="The Oasis School logo" width={145} height={165} />
+          <img className="cta-band__logo" src="/oasis-logo.webp" alt="The Oasis School logo" width="145" height="165" loading="lazy" decoding="async" />
           <p className="eyebrow" style={{justifyContent:"center"}}>The Oasis School · Panjgur</p>
           <h2>Your next chapter can begin here.</h2>
           <p>Visit the school to learn about available classes, admission requirements and the learning environment at The Oasis.</p>
