@@ -9,6 +9,11 @@ export const school = {
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Oasis+School+Panjgur",
   website: "https://theoasisschoolpangjur.techcraftsolution.com",
   contactNote: "Please call before visiting to confirm current timings and admission information.",
+  principal: {
+    name: "Nizar Baloch",
+    title: "Principal",
+    linkedin: "https://www.linkedin.com/in/nizar-baloch-82051154/",
+  },
 };
 
 export const nav = [
