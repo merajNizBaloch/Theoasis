@@ -4319,3 +4319,33 @@ a {
     height: 46px;
   }
 }
+
+
+/* Final navbar crest: exact supplied image, no outer wordmark */
+.header-brand {
+  width: 64px;
+  height: 64px;
+  gap: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+.header-logo {
+  width: 62px !important;
+  height: 62px !important;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+
+@media (max-width: 760px) {
+  .header-brand {
+    width: 54px;
+    height: 54px;
+  }
+
+  .header-logo {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
