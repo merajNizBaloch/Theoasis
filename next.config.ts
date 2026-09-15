@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
         headers: longCache,
       },
       {
-        source: "/oasis-logo.webp",
+        source: "/oasis-logo-v2.webp",
         headers: longCache,
       },
     ];
