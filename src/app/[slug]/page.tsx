@@ -35,6 +35,9 @@ export async function generateMetadata({
   return {
     title: titleMap[slug as Slug],
     description: `${titleMap[slug as Slug]} — The Oasis School, Panjgur, Balochistan.`,
+    alternates: {
+      canonical: `/${slug}`,
+    },
   };
 }
 
