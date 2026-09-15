@@ -4349,3 +4349,114 @@ a {
     height: 52px !important;
   }
 }
+
+
+/* Final navbar brand alignment override */
+.site-header--refined .site-header__inner {
+  height: 82px !important;
+  padding: 0 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+
+.site-header--refined .header-brand {
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: max-content;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 11px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  line-height: 1 !important;
+  color: var(--green-deep) !important;
+  text-decoration: none !important;
+}
+
+.site-header--refined .header-logo {
+  display: block !important;
+  width: 48px !important;
+  height: 54px !important;
+  min-width: 48px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.header-brand__text {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: var(--green-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.site-header--refined .header-brand:hover .header-brand__text {
+  color: var(--green);
+}
+
+.site-header--refined .desktop-nav {
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  justify-content: center !important;
+}
+
+.site-header--refined .header-cta {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1180px) {
+  .site-header--refined .site-header__inner {
+    height: 76px !important;
+    padding: 0 18px !important;
+  }
+
+  .site-header--refined .header-logo {
+    width: 44px !important;
+    height: 50px !important;
+    min-width: 44px !important;
+  }
+
+  .header-brand__text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header--refined .site-header__inner {
+    height: 68px !important;
+    padding: 0 14px !important;
+    gap: 12px !important;
+  }
+
+  .site-header--refined .header-logo {
+    width: 39px !important;
+    height: 44px !important;
+    min-width: 39px !important;
+  }
+
+  .header-brand__text {
+    font-size: 18px;
+  }
+
+  .site-header--refined .header-brand {
+    gap: 8px !important;
+  }
+
+  .site-header--refined .menu-button {
+    margin-left: auto !important;
+  }
+}
