@@ -48,17 +48,17 @@ export function SiteHeader() {
   return (
     <header className="site-header site-header--refined">
       <div className="site-header__inner">
-        <Link className="header-brand" href="/" aria-label="The Oasis School home">
+        <Link className="oasis-navbar-brand" href="/" aria-label="The Oasis School home">
           <img
-            className="header-logo"
+            className="oasis-navbar-logo"
             src="/oasis-logo-v2.webp"
             alt="The Oasis School Panjgur logo"
-            width="48"
-            height="54"
+            width="46"
+            height="52"
             loading="eager"
             decoding="async"
           />
-          <span className="header-brand__text">The Oasis</span>
+          <span className="oasis-navbar-name">The Oasis</span>
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
