@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, MapPin, Phone, Clock3 } from "lucide-react";
@@ -10,13 +9,14 @@ import { nav, school } from "@/lib/site-data";
 export function OasisMark({ compact = false }: { compact?: boolean }) {
   return (
     <span className={compact ? "brand brand--compact" : "brand"}>
-      <Image
+      <img
         className="school-crest"
         src="/oasis-logo.webp"
         alt="The Oasis School Panjgur"
-        width={94}
-        height={106}
-        priority
+        width="94"
+        height="106"
+        loading="eager"
+        decoding="async"
       />
     </span>
   );
@@ -103,9 +103,6 @@ export function SiteFooter() {
           <p className="footer-location"><MapPin size={17} /> {school.location}</p>
           <p className="footer-location"><Phone size={16} /> {school.phone}</p>
           <p className="footer-location"><Clock3 size={16} /> {school.hours}</p>
-          <p className="footer-small">
-            Principal · <a href={school.principal.linkedin} target="_blank" rel="noreferrer">{school.principal.name}</a>
-          </p>
         </div>
       </div>
       <div className="site-footer__bottom">
