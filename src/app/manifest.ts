@@ -14,7 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: "portrait-primary",
     icons: [
       {
-        src: "/oasis-logo.webp",
+        src: "/oasis-logo-v2.webp",
         sizes: "any",
         type: "image/webp",
         purpose: "any",
