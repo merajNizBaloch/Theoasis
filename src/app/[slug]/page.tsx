@@ -57,7 +57,7 @@ const seoMap: Record<Slug, {
     title: "Contact The Oasis School",
     description: "Contact The Oasis School in Panjgur, Balochistan. Find location, telephone details, school hours and directions.",
     keywords: ["The Oasis School contact", "The Oasis School Panjgur phone", "school location Panjgur"],
-    image: "/oasis-logo.webp",
+    image: "/oasis-logo-v2.webp",
   },
 };
 
@@ -453,7 +453,7 @@ function ContactDetails() {
       <div className="section contact-panel__grid">
         <Reveal className="contact-panel__logo">
           <img
-            src="/oasis-logo.webp"
+            src="/oasis-logo-v2.webp"
             alt="The Oasis School Panjgur logo"
             width="250"
             height="282"
