@@ -4,12 +4,11 @@ export const school = {
   location: "Panjgur, Balochistan, Pakistan",
   tagline: "The School That Sends You to the Highest Peak",
   phone: "(0855) 641382",
+  phoneHref: "tel:+92855641382",
   hours: "Monday–Saturday · 7:30 AM–2:00 PM",
-  principal: {
-    name: "Nizar Baloch",
-    title: "Principal",
-    linkedin: "https://www.linkedin.com/in/nizar-baloch-82051154/",
-  },
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Oasis+School+Panjgur",
+  website: "https://theoasisschoolpangjur.techcraftsolution.com",
+  contactNote: "Please call before visiting to confirm current timings and admission information.",
 };
 
 export const nav = [
@@ -265,8 +264,8 @@ export const pageContent = {
     intro: "The school is based in Panjgur, Balochistan. Families, former students and visitors are welcome to connect with the school community.",
     blocks: [
       ["Location", "The Oasis School, Panjgur, Balochistan, Pakistan."],
-      ["Telephone", "(0855) 641382"],
-      ["School hours", "Monday to Saturday · 7:30 AM to 2:00 PM"],
+      ["Telephone", "(0855) 641382 — please call before visiting."],
+      ["School hours", "Monday to Saturday · 7:30 AM to 2:00 PM. Please confirm current timings before visiting."],
       ["Sunday", "Closed"],
       ["Plan a visit", "For admissions, class information or school matters, visiting during school hours is the most direct way to speak with the school team."],
     ],
