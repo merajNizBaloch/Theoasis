@@ -4,15 +4,18 @@ import { SiteFooter, SiteHeader } from "@/components/site-shell";
 
 export const metadata: Metadata = {
   title: {
-    default: "The Oasis Academy | Panjgur",
-    template: "%s | The Oasis Academy",
+    default: "The Oasis School | Panjgur",
+    template: "%s | The Oasis School",
   },
-  description: "The Oasis Academy Panjgur — a legacy of English education, academic opportunity and learning in Balochistan.",
-  keywords: ["The Oasis Academy", "Oasis Academy Panjgur", "Panjgur school", "Balochistan education", "Sir Zahir Hussain"],
+  description: "The Oasis School Panjgur — a school with deep roots in English education, academic opportunity and learning in Balochistan.",
+  keywords: ["The Oasis School", "Oasis School Panjgur", "Oasis Academy Panjgur", "Panjgur school", "Balochistan education", "Sir Zahir Hussain"],
   openGraph: {
-    title: "The Oasis Academy — Panjgur",
-    description: "A legacy of learning in Panjgur, Balochistan.",
+    title: "The Oasis School — Panjgur",
+    description: "A legacy of learning, confidence and opportunity in Panjgur, Balochistan.",
     type: "website",
+  },
+  icons: {
+    icon: "/oasis-logo.svg",
   },
 };
 
