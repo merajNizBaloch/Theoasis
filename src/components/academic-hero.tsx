@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   BookOpen,
   GraduationCap,
@@ -199,27 +196,19 @@ export function AcademicHero({
       <div className="academic-hero__glow academic-hero__glow--two" aria-hidden="true" />
 
       <div className="academic-hero__inner">
-        <motion.div
-          className="academic-hero__copy"
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="academic-hero__copy academic-hero__copy--enter">
           <p className="academic-hero__eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p className="academic-hero__description">{description}</p>
           {actions && <div className="academic-hero__actions">{actions}</div>}
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="academic-hero__art"
+        <div
+          className="academic-hero__art academic-hero__art--enter"
           aria-hidden="true"
-          initial={{ opacity: 0, scale: .94, x: 18 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: .8, delay: .08, ease: [0.22, 1, 0.36, 1] }}
         >
           <HeroVisual variant={variant} />
-        </motion.div>
+        </div>
       </div>
 
       <div className="academic-hero__bottom">
